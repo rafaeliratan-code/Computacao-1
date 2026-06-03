@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <locale.h>
 
 #define TAM 4
 
@@ -108,7 +109,7 @@ void verificarRegras(int linha, int coluna, char simbolo, int jogador) {
 }
 
 int main() {
-
+	
 	int linha, coluna;
 	int i;
 	char simbolos[3] = {'X', 'O', 'A'};

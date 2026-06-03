@@ -29,7 +29,6 @@ void gravarHistorico() {
 	else
 		fprintf(arquivo, "Resultado: Empate\n");
 
-	fprintf(arquivo, "---------------------------\n");
 
 	fclose(arquivo);
 	printf("\nResultado: 'historico.txt'!\n");

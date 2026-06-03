@@ -167,6 +167,7 @@ int main() {
 
 	mostrarTabuleiro();
 
+	// pontuações dos jogadores
 	printf("\nPontuacao Final:\n");
 	printf("X = %d pontos\n", pontos[0]);
 	printf("O = %d pontos\n", pontos[1]);

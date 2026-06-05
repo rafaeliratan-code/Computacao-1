@@ -90,7 +90,7 @@ void processarRegrasEstranhas(int linha, int coluna, char simbolo, int ID_jogado
     
     // regra estranha 1: Se jogar ao lado de um símbolo igual ao seu, ganha +2 pontos
     if ((linha > 0 && tabuleiro[linha - 1][coluna] == simbolo) ||
-        (linha < TAMANHO_TABULEIRO - 1 && tabuleiro[linha + 1][coluna] == simbolo) ||
+		(linha < TAMANHO_TABULEIRO - 1 && tabuleiro[linha + 1][coluna] == simbolo) ||
         (coluna > 0 && tabuleiro[linha][coluna - 1] == simbolo) ||
         (coluna < TAMANHO_TABULEIRO - 1 && tabuleiro[linha][coluna + 1] == simbolo)) 
     {
@@ -103,8 +103,7 @@ void processarRegrasEstranhas(int linha, int coluna, char simbolo, int ID_jogado
         char esquerda = tabuleiro[linha][coluna - 1];
         char direita = tabuleiro[linha][coluna + 1];
 
-        if (esquerda != ' ' && direita != ' ' &&
-            esquerda != simbolo && direita != simbolo) 
+        if (esquerda != ' ' && direita != ' ' && esquerda != simbolo && direita != simbolo) 
         {
             pulou_rodada[ID_jogador] = 1;
             printf("Você foi cercado por símbolos diferentes e perdera a próxima rodada.\n");
@@ -126,21 +125,19 @@ int main() {
     while (TabuleiroCheio() == 0) {
 
         for (int i = 0; i < 3; i++) {
-            // Varredura de segurança caso o tabuleiro lote no meio da rodada
             if (TabuleiroCheio()) {
                 break;
             }
 
-            // Tratamento de penalidade (perda de vez)
             if (pulou_rodada[i]) {
                 printf("\n[!] O participante '%c' esta penalizado e passou a vez.\n", simbolos[i]);
-                pulou_rodada[i] = 0; // Penalidade paga, reseta o estado
+                pulou_rodada[i] = 0;
                 continue;
             }
 
             desenharTabuleiro();
 
-            // Turno do Computador
+            // turno do computador
             if (i == COMPUTADOR) {
                 printf("Turno do Computador... Pensando...\n");
                 do {
@@ -150,7 +147,7 @@ int main() {
 
                 printf("O Computador escolheu a posicao: L%d, C%d\n", linha, coluna);
 
-            // Turno dos Jogadores Humanos
+            // turno dos jogadores
             } else {
                 printf("Sua vez, Jogador '%c'!\n", simbolos[i]);
                 do {

@@ -60,7 +60,7 @@ void desenharTabuleiro() {
     printf("\n");
     for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
         for (int j = 0; j < TAMANHO_TABULEIRO; j++) {
-            printf("%c", tabuleiro[i][j]);
+            printf(" %c ", tabuleiro[i][j]);
             if (j < TAMANHO_TABULEIRO - 1) {
                 printf("|");
             }
@@ -168,17 +168,17 @@ int main() {
                          tabuleiro[linha][coluna] != ' ');
             }
 
-            // Efetivação da jogada
+            // leitura do jogada e simbolo
             tabuleiro[linha][coluna] = simbolos[i];
-            pontuacao[i]++; // Cada peça posicionada vale 1 ponto base
+            pontuacao[i]++; // cada peça posicionada vale 1 ponto base
 
-            // Disparo dos gatilhos de regras extras
+            // meio que procura se aconteceu ou nao uma das regras
             processarRegrasEstranhas(linha, coluna, simbolos[i], i);
             exibirPlacar();
         }
     }
 
-    // Fim de jogo e encerramento
+    // fim do jogo
     desenharTabuleiro();
     printf("FIM DE JOGO! TABULEIRO CHEIO\n");
     printf("\nResultado Final:\n");

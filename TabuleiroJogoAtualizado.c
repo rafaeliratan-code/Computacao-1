@@ -25,11 +25,11 @@ void salvarHistorico() {
     FILE *arquivo = fopen("historico.txt", "a");
 
     if (arquivo == NULL) {
-        printf("[Erro] Não foi possivel salvar o histórico no arquivo.\n");
+        printf("Erro! Não foi possivel salvar o histórico no arquivo.\n");
         return;
     }
 
-    fprintf(arquivo, "Pontuacao final: X=%d | O=%d | Computador=%d\n", 
+    fprintf(arquivo, "Pontuação final: X=%d | O=%d | Computador=%d\n", 
             pontuacao[JOGADOR_X], pontuacao[JOGADOR_O], pontuacao[COMPUTADOR]);
 
     if (pontuacao[JOGADOR_X] > pontuacao[JOGADOR_O] && pontuacao[JOGADOR_X] > pontuacao[COMPUTADOR])
@@ -43,7 +43,7 @@ void salvarHistorico() {
 
     fclose(arquivo);
     
-    printf("\n Partida gravada com sucesso em 'historico.txt'!\n");
+    printf("\n Partida gravada em 'historico.txt'\n");
 }
 
 // preenche o tabuleiro com espaços vazios
@@ -130,7 +130,7 @@ int main() {
             }
 
             if (pulou_rodada[i]) {
-                printf("\n[!] O participante '%c' esta penalizado e passou a vez.\n", simbolos[i]);
+                printf("\nO participante '%c' está penalizado e passou a vez.\n", simbolos[i]);
                 pulou_rodada[i] = 0;
                 continue;
             }
@@ -139,13 +139,13 @@ int main() {
 
             // turno do computador
             if (i == COMPUTADOR) {
-                printf("Turno do Computador... Pensando...\n");
+                printf("Vez do Computador! Aguarde\n");
                 do {
                     linha = rand() % TAMANHO_TABULEIRO;
                     coluna = rand() % TAMANHO_TABULEIRO;
                 } while (tabuleiro[linha][coluna] != ' ');
 
-                printf("O Computador escolheu a posicao: L%d, C%d\n", linha, coluna);
+                printf("O Computador escolheu a posição: Linha %d, Coluna %d\n", linha, coluna);
 
             // turno dos jogadores
             } else {
@@ -158,9 +158,9 @@ int main() {
                     scanf("%d", &coluna);
 
                     if (linha < 0 || linha > 3 || coluna < 0 || coluna > 3) {
-                        printf("[Aviso] Coordenadas invalidas! Use numeros de 0 a 3.\n");
+                        printf("Aviso!!! Coordenadas inválidas! Digite números de 0 a 3\n");
                     } else if (tabuleiro[linha][coluna] != ' ') {
-                        printf("[Aviso] Essa posicao ja esta ocupada! Escolha outra.\n");
+                        printf("Aviso!!! Essa posição já está ocupada!\n");
                     }
 
                 } while (linha < 0 || linha > 3 || 
@@ -182,18 +182,18 @@ int main() {
     desenharTabuleiro();
     printf("FIM DE JOGO! TABULEIRO CHEIO\n");
     printf("\nResultado Final:\n");
-    printf("Jogador X  : %d pontos\n", pontuacao[JOGADOR_X]);
-    printf("Jogador O  : %d pontos\n", pontuacao[JOGADOR_O]);
-    printf("Computador : %d pontos\n", pontuacao[COMPUTADOR]);
+    printf("Jogador X: %d pontos\n", pontuacao[JOGADOR_X]);
+    printf("Jogador O: %d pontos\n", pontuacao[JOGADOR_O]);
+    printf("Computador: %d pontos\n", pontuacao[COMPUTADOR]);
 
     if (pontuacao[JOGADOR_X] > pontuacao[JOGADOR_O] && pontuacao[JOGADOR_X] > pontuacao[COMPUTADOR])
-        printf(" Parabens! O Jogador X venceu o confronto!\n");
+        printf("Parabéns! O Jogador X venceu a partida!\n");
     else if (pontuacao[JOGADOR_O] > pontuacao[JOGADOR_X] && pontuacao[JOGADOR_O] > pontuacao[COMPUTADOR])
-        printf(" Parabens! O Jogador O venceu o confronto!\n");
+        printf("Parabéns! O Jogador O venceu a partida!\n");
     else if (pontuacao[COMPUTADOR] > pontuacao[JOGADOR_X] && pontuacao[COMPUTADOR] > pontuacao[JOGADOR_O])
-        printf(" O Computador venceu a partida desta vez!\n");
+        printf("O Computador venceu a partida!\n");
     else
-        printf(" Temos um empate técnico na rodada!\n");
+        printf("Temos um empate técnico na rodada!\n");
         
 
     salvarHistorico();

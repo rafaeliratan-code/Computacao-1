@@ -17,3 +17,20 @@ void PreencherTabuleiro() {
 		}
 	}
 }
+void DesenharTabuleiro() {
+	printf("\n");
+	for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
+		for (int j = 0; j < TAMANHO_TABULEIRO; j++) {
+			printf(" %c ", tabuleiro[i][j]);
+			if (j < TAMANHO_TABULEIRO - 1) {
+				printf("|");
+			}
+		}
+		printf("\n");
+
+		if (i < TAMANHO_TABULEIRO - 1) {
+			printf("-----------------\n");
+		}
+	}
+	printf("\n");
+}

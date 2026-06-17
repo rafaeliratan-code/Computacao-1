@@ -17,14 +17,12 @@ int pulou_Computador = 0;
 int linhaPremiada;
 int colunaPremiada;
 
-// mostra o placar do jogo
 void exibirPlacar() {
     printf("\nPLACAR ATUAL: \n");
     printf("Jogador X: %d pts | Jogador O: %d pts | Computador: %d pts\n", 
             pontuacao[JOGADOR_X], pontuacao[JOGADOR_O], pontuacao[COMPUTADOR]);
 }
 
-// sistema de salvar historico em arquivo txt
 void salvarHistorico() {
     FILE *arquivo = fopen("historico.txt", "a");
 
@@ -153,7 +151,6 @@ int main() {
 
             desenharTabuleiro();
 
-            // turno do computador
             if (vez == COMPUTADOR) {
                 printf("Vez do Computador! Aguarde\n");
                 do {
@@ -163,7 +160,6 @@ int main() {
 
                 printf("O Computador escolheu a posição: Linha %d, Coluna %d\n", linha, coluna);
 
-            // turno dos jogadores humanos
             } else {
                 printf("Sua vez, Jogador '%c'!\n", simbolos[vez]);
                 do {
@@ -190,7 +186,6 @@ int main() {
         }
     }
 
-    // fim do jogo
     desenharTabuleiro();
     printf("FIM DE JOGO! TABULEIRO CHEIO\n");
     printf("\nResultado Final:\n");

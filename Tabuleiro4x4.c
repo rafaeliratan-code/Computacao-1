@@ -50,7 +50,6 @@ void salvarHistorico() {
     printf("\n Partida gravada em 'historico.txt'\n");
 }
 
-// preenche o tabuleiro com espaços vazios
 void inicializarTabuleiro() {
     for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
         for (int j = 0; j < TAMANHO_TABULEIRO; j++) {
@@ -59,7 +58,7 @@ void inicializarTabuleiro() {
     }
 }
 
-// desenha o tabuleiro na tela de forma organizada
+
 void desenharTabuleiro() {
     printf("\n");
     for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
@@ -78,7 +77,7 @@ void desenharTabuleiro() {
     printf("\n");
 }
 
-// verfica se tem espaço sobrando
+
 int TabuleiroCheio() {
     for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
         for (int j = 0; j < TAMANHO_TABULEIRO; j++) {

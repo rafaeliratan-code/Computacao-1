@@ -19,8 +19,7 @@ int colunaPremiada;
 
 void exibirPlacar() {
     printf("\nPLACAR ATUAL: \n");
-    printf("Jogador X: %d pts | Jogador O: %d pts | Computador: %d pts\n", 
-            pontuacao[JOGADOR_X], pontuacao[JOGADOR_O], pontuacao[COMPUTADOR]);
+    printf("Jogador X: %d pts | Jogador O: %d pts | Computador: %d pts\n", pontuacao[JOGADOR_X], pontuacao[JOGADOR_O], pontuacao[COMPUTADOR]);
 }
 
 void salvarHistorico() {

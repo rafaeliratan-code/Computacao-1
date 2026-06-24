@@ -30,8 +30,7 @@ void salvarHistorico() {
         return;
     }
 
-    fprintf(arquivo, "Pontuação final: X=%d | O=%d | Computador=%d\n", 
-            pontuacao[JOGADOR_X], pontuacao[JOGADOR_O], pontuacao[COMPUTADOR]);
+    fprintf(arquivo, "Pontuação final: X=%d | O=%d | Computador=%d\n", pontuacao[JOGADOR_X], pontuacao[JOGADOR_O], pontuacao[COMPUTADOR]);
 
     if (pontuacao[JOGADOR_X] > pontuacao[JOGADOR_O] && pontuacao[JOGADOR_X] > pontuacao[COMPUTADOR])
         fprintf(arquivo, "Resultado: Vitória do Jogador X\n");
@@ -124,8 +123,8 @@ int main() {
     linhaPremiada = rand() % TAMANHO_TABULEIRO;
     colunaPremiada = rand() % TAMANHO_TABULEIRO;
     printf("Tabuleiro estranho 4x4  \n");
-    printf("COORDENADA SECRETA PREMIADA: Linha %d, Coluna %d\n", linhaPremiada, colunaPremiada);
-
+   printf("COORDENADA SECRETA PREMIADA: Linha %d, Coluna %d\n", linhaPremiada, colunaPremiada);
+ 
     while (TabuleiroCheio() == 0) {
 
         for (int vez = 0; vez < 3; vez++) {
